@@ -23,10 +23,9 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+const apiRoutes = require('./routes/index');
+app.use("/api/v1", apiRoutes);
 
-
-const treesRoutes = require("./routes/trees");
-app.use("/api/v1/trees", treesRoutes);
 
 
 if(process.env.NODE_ENV === 'production'){
