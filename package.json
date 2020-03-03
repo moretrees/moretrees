@@ -2,7 +2,7 @@
   "name": "moretrees",
   "version": "0.0.1",
   "engines": {
-    "node": "12n.13.0"
+    "node": "10.15.0"
   },
   "description": "Main website for moretrees.nyc",
   "main": "server/index.js",
