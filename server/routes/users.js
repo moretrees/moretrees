@@ -1,6 +1,8 @@
 const express = require('express');
 const api = express.Router();
 const User = require('../models/user.js');
+const isAuthenticated = require("../middleware/isAuthenticated");
+const isAuthorized = require("../middleware/isAuthorized");
 // emailer
 const crypto = require('crypto');
 const config = require('../config');
@@ -84,7 +86,7 @@ api.post('/login', async (req, res) => {
       user,
       token
     });
-    
+
   } catch (err) {
     res.status(400).send(err);
   }
@@ -93,7 +95,7 @@ api.post('/login', async (req, res) => {
 /**
  * logout
  */
-api.post('/me/logout', async (req, res) => {
+api.post('/me/logout',isAuthenticated, isAuthorized, async (req, res) => {
   try {
     req.user.tokens = req.user.tokens.filter(token => {
       return token.token !== req.token;
@@ -110,7 +112,7 @@ api.post('/me/logout', async (req, res) => {
 /**
  * logout all
  */
-api.post('/me/logoutall', async (req, res) => {
+api.post('/me/logoutall', isAuthenticated, async (req, res) => {
   try {
     req.user.tokens.splice(0, req.user.tokens.length);
     await req.user.save();
@@ -123,14 +125,15 @@ api.post('/me/logoutall', async (req, res) => {
 /**
  * send back user info
  */
-api.get('/me', async (req, res) => {
+api.get('/me', isAuthenticated, async (req, res) => {
   try{
-    res.json({status:'success', ...res.locals.cleanUser});
+    const username = res.cookies.username;
+    const _id = res.cookies.user_id;
+    res.json({username, _id});
   } catch(err){
     throw new Error(err)
   }
-  
-})
+});
 
 
 /**

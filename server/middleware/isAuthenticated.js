@@ -19,6 +19,8 @@ const isAuthenticated = async (req, res, next) => {
       throw new Error({error: 'error verifying user'});
     }
 
+    req.user = user;
+    req.token = token;
     next();
   }catch(err){
     res.status(401).send({ error: 'Not authorized to access this resource' })

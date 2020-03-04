@@ -2,7 +2,7 @@ const express = require("express");
 const api = express.Router();
 const db = require("../models/tree");
 const isAuthenticated = require("../middleware/isAuthenticated");
-const isAuthorized= require("../middleware/isAuthorized");
+const isAuthorized = require("../middleware/isAuthorized");
 
 api.get('/', async (req, res) => {
   try {
