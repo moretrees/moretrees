@@ -33,7 +33,14 @@ api.post('/', isAuthenticated, async (req, res) => {
 
 api.put("/:id", isAuthenticated, isAuthorized, async (req, res) => {
   try {
-    res.json({ message: 'put' });
+    const id = req.cookies.user_id;
+
+    const updateCmd = {
+      $set: req.body
+    };
+
+    const updatedData = await db.findByIdAndUpdate({_id:id}, updateCmd, {new:true});
+    res.json({data:updatedData, status:'success'});
   } catch (error) {
     res.json(error);
   }
@@ -41,7 +48,13 @@ api.put("/:id", isAuthenticated, isAuthorized, async (req, res) => {
 
 api.delete('/:id', isAuthenticated, isAuthorized, async (req, res) => {
   try {
-    res.json({ message: 'delete' });
+    const id = req.cookies.user_id;
+    await db.findByIdAndRemove({_id:id});
+    res.json({
+      status:'success',
+      id:id,
+      message: 'successfully deleted feature'
+    });
   } catch (error) {
     res.json(error);
   }
