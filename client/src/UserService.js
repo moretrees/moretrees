@@ -1,16 +1,49 @@
-import axios from "axios";
+import axios from 'axios';
 
-const url = "/api/v1/users";
+const url = '/api/v1/users';
 
 class UserService {
-  // GET trees
-  static async login() {}
-
-  // Create trees
-  static async logout() {}
-
   // Delete Trees
-  static async register() {}
+  /**
+   * signup
+   * @param {*} credentials
+   */
+  static async signup(credentials) {
+    try {
+      const result = await axios.post(`${url}/signup`, credentials);
+      const data = result.data;
+      return data;
+    } catch (error) {
+      return error;
+    }
+  }
+
+  /**
+   * login
+   * @param {*} credentials 
+   */
+  static async login(credentials) {
+    try {
+      const result = await axios.post(`${url}/login`, credentials);
+      const data = result.data;
+      return data;
+    } catch (error) {
+      return error;
+    }
+  }
+
+  /**
+   * logout
+   */
+  static async logout() {
+    try {
+      const result = await axios.post(`${url}/me/logoutall`);
+      const data = result.data;
+      return data;
+    } catch (error) {
+      return error;
+    }
+  }
 }
 
 export default UserService;

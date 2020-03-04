@@ -1,3 +1,24 @@
 <template>
-  <h1>login</h1>
+  <div id="Login">
+    <header class="header">
+      <h1>Login</h1>
+    </header>
+    <main class="main">
+      <LoginComponent/>
+    </main>
+  </div>
 </template>
+
+<script>
+import LoginComponent from "@/components/LoginComponent.vue";
+
+export default {
+  name: "Login",
+  components: {
+    LoginComponent
+  }
+};
+</script>
+
+<style lang="scss" scoped>
+</style>
