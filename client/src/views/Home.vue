@@ -6,23 +6,54 @@
       <button class="header__cta">Learn More</button>
     </header>
     <main class="main">
-      <section class="section section--lawn">
-        <h2 class="section__title">Section 1</h2>
-      </section>
+      <section class="section section--lawn"></section>
       <section class="section section--tree">
         <!-- <svg class="planter__icon">
           <use xlink:href="../assets/planter.svg" />
-        </svg> -->
-        <img class="planter__icon" src="../assets/planter.png">
-        <h2 class="section__title">Section 2</h2>
+        </svg>-->
+        <img class="planter__icon" src="../assets/planter.png" />
+        <div class="section__content section__content--right">
+          <h2 class="section__title">Who Are We</h2>
+          <p
+            class="section__text"
+          >Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem doloremque dolorem minus in ex possimus magnam unde aspernatur! Fuga nihil voluptate voluptatum consequuntur nulla autem saepe et similique? Quam, asperiores?</p>
+        </div>
       </section>
       <section class="section section--tree">
-        <img class="tree-branch__icon tree-branch__icon--right" src="../assets/tree-branch--right.png">
-        <h2 class="section__title">Section 3</h2>
+        <img
+          class="tree-branch__icon tree-branch__icon--right"
+          src="../assets/tree-branch--right.png"
+        />
+        <div class="section__content section__content--left">
+          <h2 class="section__title">What We're Doing</h2>
+          <p
+            class="section__text"
+          >Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem doloremque dolorem minus in ex possimus magnam unde aspernatur! Fuga nihil voluptate voluptatum consequuntur nulla autem saepe et similique? Quam, asperiores?</p>
+        </div>
       </section>
       <section class="section section--tree">
-        <img class="tree-branch__icon tree-branch__icon--left" src="../assets/tree-branch--left.png">
-        <h2 class="section__title">Section 4</h2>
+        <img
+          class="tree-branch__icon tree-branch__icon--left"
+          src="../assets/tree-branch--left.png"
+        />
+        <div class="section__content section__content--right">
+          <h2 class="section__title">Get Involved</h2>
+          <p
+            class="section__text"
+          >Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem doloremque dolorem minus in ex possimus magnam unde aspernatur! Fuga nihil voluptate voluptatum consequuntur nulla autem saepe et similique? Quam, asperiores?</p>
+        </div>
+      </section>
+      <section class="section section--tree">
+        <img
+          class="tree-branch__icon tree-branch__icon--right"
+          src="../assets/tree-branch--right.png"
+        />
+        <div class="section__content section__content--left">
+          <h2 class="section__title">Learn More</h2>
+          <p
+            class="section__text"
+          >Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem doloremque dolorem minus in ex possimus magnam unde aspernatur! Fuga nihil voluptate voluptatum consequuntur nulla autem saepe et similique? Quam, asperiores?</p>
+        </div>
       </section>
     </main>
   </div>
@@ -96,6 +127,33 @@ export default {
 .section {
   height: 90vh;
 
+  &__title {
+    z-index: 100;
+    max-width: 400px;
+    width: 100%;
+  }
+  &__text {
+    z-index: 100;
+    max-width: 400px;
+    width: 100%;
+  }
+
+  &__content {
+    padding: 1rem;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    &--left {
+      align-items: flex-start;
+    }
+    &--right {
+      align-items: flex-end;
+    }
+  }
+
   &--lawn {
     background: rgb(115, 144, 58);
     background: linear-gradient(
@@ -110,7 +168,7 @@ export default {
     position: relative;
   }
 
-  &--tree:after {
+  &--tree:before {
     content: "";
     position: absolute;
     width: 200px;
@@ -119,31 +177,32 @@ export default {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    z-index: 0;
   }
 }
-.planter__icon{
-  z-index:9000;
-  width:400px;
+.planter__icon {
+  z-index: 9000;
+  width: 400px;
   height: 8rem;
   position: absolute;
-  bottom:0;
-  left:50%;
+  bottom: 0;
+  left: 50%;
   transform: translateX(-50%);
 }
-.tree-branch__icon{
-  width:520px;
-  position:absolute;
+.tree-branch__icon {
+  width: 520px;
+  position: absolute;
   z-index: 9000;
 
-  &--left{
-    left:50%;
-    top:50%;
-    transform: translate(-90%,-50%);
+  &--left {
+    left: 50%;
+    top: 50%;
+    transform: translate(-90%, -50%);
   }
-   &--right{
-    left:50%;
-    top:50%;
-    transform: translate(-10%,-50%);
+  &--right {
+    left: 50%;
+    top: 50%;
+    transform: translate(-10%, -50%);
   }
 }
 </style>
