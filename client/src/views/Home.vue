@@ -32,35 +32,39 @@ export default {
 <style scoped lang="scss">
 #Home {
   width: 100%;
-  background: rgb(171,220,207);
-  background: linear-gradient(0deg, rgba(171,220,207,1) 19%, rgba(145,203,194,1) 96%);
-  display:flex;
+  background: rgb(171, 220, 207);
+  background: linear-gradient(
+    0deg,
+    rgba(171, 220, 207, 1) 19%,
+    rgba(145, 203, 194, 1) 96%
+  );
+  display: flex;
   flex-direction: column-reverse;
 }
 
-.header{
-  height:90vh;
+.header {
+  height: 90vh;
   background-color: #412517;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
-  &__title{
+  &__title {
     color: #eee;
     font-size: 2.4rem;
   }
 
-  &__subtitle{
+  &__subtitle {
     color: #eee;
     font-size: 1.4rem;
-    font-weight:100;
+    font-weight: 100;
   }
 
-  &__cta{
-    border: 2px solid #5F642C;
-    background-color:none;
-    color: #5F642C;
+  &__cta {
+    border: 2px solid #5f642c;
+    background-color: none;
+    color: #5f642c;
     background: none;
     width: 200px;
     height: 3rem;
@@ -69,30 +73,35 @@ export default {
   }
 }
 
-.main{
+.main {
   display: flex;
-  flex-direction:column-reverse;
+  flex-direction: column-reverse;
 }
 
-.section{
+.section {
   height: 90vh;
   border: 1px solid #eee;
 
-  &--lawn{
-     background: rgb(115,144,58);
-background: linear-gradient(180deg, rgba(115,144,58,1) 27%, rgba(95,100,44,1) 45%, rgba(65,37,23,1) 82%); 
+  &--lawn {
+    background: rgb(115, 144, 58);
+    background: linear-gradient(
+      180deg,
+      rgba(115, 144, 58, 1) 27%,
+      rgba(95, 100, 44, 1) 45%,
+      rgba(65, 37, 23, 1) 82%
+    );
   }
 
-  &--tree{
-    position:relative;
+  &--tree {
+    position: relative;
   }
 
-  &--tree:after{
-    content:"";
+  &--tree:after {
+    content: "";
     position: absolute;
     width: 200px;
-    height:100%;
-    background-color:#8A3F38;
+    height: 100%;
+    background-color: #8a3f38;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);

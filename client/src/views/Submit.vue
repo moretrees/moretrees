@@ -3,22 +3,15 @@
     <header class="header">
       <h1>submit</h1>
     </header>
-    <main class="main">
-      
-    </main>
+    <main class="main"></main>
   </div>
 </template>
 
 <script>
-
 export default {
   name: "Submit",
-  components: {
-
-  }
+  components: {}
 };
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

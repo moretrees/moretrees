@@ -4,7 +4,7 @@
       <h1>Signup</h1>
     </header>
     <main class="main">
-      <SignupComponent/>
+      <SignupComponent />
     </main>
   </div>
 </template>
@@ -20,5 +20,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

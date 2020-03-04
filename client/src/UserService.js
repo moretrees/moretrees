@@ -1,6 +1,6 @@
-import axios from 'axios';
+import axios from "axios";
 
-const url = '/api/v1/users';
+const url = "/api/v1/users";
 
 class UserService {
   // Delete Trees
@@ -20,7 +20,7 @@ class UserService {
 
   /**
    * login
-   * @param {*} credentials 
+   * @param {*} credentials
    */
   static async login(credentials) {
     try {
