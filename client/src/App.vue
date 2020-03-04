@@ -34,5 +34,6 @@ body {
 
 #app {
   margin-top:2rem;
+  overflow-x:hidden;
 }
 </style>

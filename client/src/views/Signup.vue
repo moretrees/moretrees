@@ -1,5 +1,5 @@
 <template>
-  <div id="Login">
+  <div id="Signup">
     <header class="header">
       <h1>Signup</h1>
     </header>
@@ -20,4 +20,13 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+#Signup{
+  height:90vh;
+  width:100%;
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  justify-content:center;
+}
+</style>

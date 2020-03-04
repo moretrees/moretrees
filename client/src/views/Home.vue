@@ -141,12 +141,22 @@ export default {
     max-width: 400px;
     width: 100%;
     font-size:2.6rem;
+
+    @media screen and (max-width:600px) {
+      max-width:100%;
+    }
   }
   &__text {
     z-index: 100;
     max-width: 400px;
     width: 100%;
     font-size: 1.2rem;
+
+    @media screen and (max-width:600px) {
+      max-width:100%;
+      background-color: rgba(255,255, 255, 0.5);
+      padding: 1rem;
+    }
   }
 
   &__content {
@@ -156,6 +166,7 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    
 
     &--left {
       align-items: flex-start;
@@ -163,6 +174,11 @@ export default {
     &--right {
       align-items: flex-end;
     }
+
+    @media screen and (max-width:600px) {
+      justify-content: flex-start;
+    }
+
   }
 
   &--lawn {
@@ -203,7 +219,7 @@ export default {
 .tree-branch__icon {
   width: 520px;
   position: absolute;
-  z-index: 9000;
+  z-index: 99;
 
   &--left {
     left: 50%;
