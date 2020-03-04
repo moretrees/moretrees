@@ -53,6 +53,8 @@ api.post('/login', async (req, res) => {
       password
     } = req.body;
 
+    console.log(req.body)
+
     const user = await User.findByCredentials(email, password);
 
     if (!user) {

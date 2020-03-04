@@ -1,18 +1,101 @@
 <template>
-  <div class="home">
-    <h1>home</h1>
-    <TreeComponent />
+  <div id="Home">
+    <header class="header">
+      <h1 class="header__title">Let's Plant More Trees</h1>
+      <h2 class="header__subtitle">A project by moretrees.nyc</h2>
+      <button class="header__cta">Learn More</button>
+    </header>
+    <main class="main">
+      <section class="section section--lawn">
+        <h2 class="section__title">Section 1</h2>
+      </section>
+      <section class="section section--tree">
+        <h2 class="section__title">Section 2</h2>
+      </section>
+      <section class="section section--tree">
+        <h2 class="section__title">Section 3</h2>
+      </section>
+      <section class="section section--tree">
+        <h2 class="section__title">Section 4</h2>
+      </section>
+    </main>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import TreeComponent from "@/components/TreeComponent.vue";
-
 export default {
   name: "Home",
-  components: {
-    TreeComponent
-  }
+  components: {}
 };
 </script>
+
+<style scoped lang="scss">
+#Home {
+  width: 100%;
+  background: rgb(171,220,207);
+  background: linear-gradient(0deg, rgba(171,220,207,1) 19%, rgba(145,203,194,1) 96%);
+  display:flex;
+  flex-direction: column-reverse;
+}
+
+.header{
+  height:90vh;
+  background-color: #412517;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+
+  &__title{
+    color: #eee;
+    font-size: 2.4rem;
+  }
+
+  &__subtitle{
+    color: #eee;
+    font-size: 1.4rem;
+    font-weight:100;
+  }
+
+  &__cta{
+    border: 2px solid #5F642C;
+    background-color:none;
+    color: #5F642C;
+    background: none;
+    width: 200px;
+    height: 3rem;
+    text-decoration: none;
+    margin-top: 4rem;
+  }
+}
+
+.main{
+  display: flex;
+  flex-direction:column-reverse;
+}
+
+.section{
+  height: 90vh;
+  border: 1px solid #eee;
+
+  &--lawn{
+     background: rgb(115,144,58);
+background: linear-gradient(180deg, rgba(115,144,58,1) 27%, rgba(95,100,44,1) 45%, rgba(65,37,23,1) 82%); 
+  }
+
+  &--tree{
+    position:relative;
+  }
+
+  &--tree:after{
+    content:"";
+    position: absolute;
+    width: 200px;
+    height:100%;
+    background-color:#8A3F38;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+</style>

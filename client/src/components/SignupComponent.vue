@@ -1,6 +1,10 @@
 <template>
-  <div class="login">
-    <form @submit.prevent="handleSubmit" class="login__form">
+  <div class="signup">
+    <form @submit.prevent="handleSubmit" class="signup__form">
+      <div>
+        <label>Username</label>
+        <input type="text" name="username" v-model="username" />
+      </div>
       <div>
         <label>Email</label>
         <input type="email" name="email" v-model="email" />
@@ -11,12 +15,12 @@
         <router-link to="/reset_password">Forgot Password?</router-link>
       </div>
       <div>
-        <input type="submit" value="log in" />
+        <input type="submit" value="sign up" />
       </div>
     </form>
-    <p class="login__alt">
-      Don't have an account yet?
-      <router-link to="/register">Register</router-link>to begin.
+    <p class="signup__alt">
+      Already have an account?
+      <router-link to="/login">Log in</router-link>.
     </p>
   </div>
 </template>
@@ -24,20 +28,22 @@
 <script>
 import UserService from "../UserService";
 export default {
-  name: "LoginComponent",
+  name: "SignupComponent",
   data() {
     return {
       email: null,
-      password: null
+      password: null,
+      username: null
     };
   },
   methods: {
     async handleSubmit() {
       const data = {
         email: this.email,
-        password: this.password
+        password: this.password,
+        username: this.username
       };
-      await UserService.login(data);
+      await UserService.signup(data);
     }
   }
 };
