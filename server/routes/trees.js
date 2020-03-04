@@ -1,6 +1,8 @@
 const express = require("express");
 const api = express.Router();
 const db = require("../models/tree");
+const isAuthenticated = require("../middleware/isAuthenticated");
+const isAuthorized= require("../middleware/isAuthorized");
 
 api.get('/', async (req, res) => {
   try {
@@ -11,13 +13,16 @@ api.get('/', async (req, res) => {
   }
 });
 
-api.post('/', async (req, res) => {
+api.post('/', isAuthenticated, async (req, res) => {
   try {
+    const {username, user_id} = req.cookies;
     const {latitude, longitude, status} = req.body;
     const newData = {
       latitude,
       longitude,
-      status
+      status,
+      createdBy_username:username,
+      createdBy_id:user_id
     };
     const data = await db.create(newData);
     res.json(data);
@@ -26,7 +31,7 @@ api.post('/', async (req, res) => {
   }
 });
 
-api.put("/:id", async (req, res) => {
+api.put("/:id", isAuthenticated, isAuthorized, async (req, res) => {
   try {
     res.json({ message: 'put' });
   } catch (error) {
@@ -34,7 +39,7 @@ api.put("/:id", async (req, res) => {
   }
 });
 
-api.delete('/:id', async (req, res) => {
+api.delete('/:id', isAuthenticated, isAuthorized, async (req, res) => {
   try {
     res.json({ message: 'delete' });
   } catch (error) {
