@@ -2,6 +2,7 @@
   <div id="Submit">
     <header class="header">
       <img src="#" class="image__preview" />
+      <MapComponent/>
     </header>
     <main class="main">
       <p class="description">Hey, I found an empty tree bed!</p>
@@ -24,9 +25,12 @@
 </template>
 
 <script>
+import MapComponent from "@/components/MapComponent";
 export default {
   name: "Submit",
-  components: {}
+  components: {
+    MapComponent
+  }
 };
 </script>
 
@@ -34,7 +38,7 @@ export default {
 #Submit {
   width: 100%;
   height: calc(100vh - 2rem);
-  background-image: url(../assets/nyc-map-800x800.png);
+  // background-image: url(../assets/nyc-map-800x800.png);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -57,6 +61,10 @@ export default {
   font-size:1rem;
   max-width:600px;
   margin:0 auto;
+}
+
+.header{
+  position:relative;
 }
 
 .image__preview {
