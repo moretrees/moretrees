@@ -4,6 +4,7 @@
 
 <script>
 import * as L from "leaflet";
+
 export default {
   name: "MapComponent",
   data() {
@@ -29,7 +30,7 @@ export default {
           '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       }).addTo(map);
 
-      const myLocation = L.marker([0,0]).addTo(map);
+      const myLocation = L.circle([0,0], 10).addTo(map);
       map.locate({watch:true, setView:true}).on('locationfound', (evt) => {
           myLocation.remove();
 
@@ -62,6 +63,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../../node_modules/leaflet/dist/leaflet.css";
 .map-container {
   width: 100%;
   height: 500px;
