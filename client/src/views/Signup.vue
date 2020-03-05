@@ -21,12 +21,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-#Signup{
-  height:90vh;
-  width:100%;
+#Signup {
+  height: 90vh;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  align-items:center;
-  justify-content:center;
+  align-items: center;
+  justify-content: center;
 }
 </style>

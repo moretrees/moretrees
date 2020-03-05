@@ -5,17 +5,32 @@
         <label class="auth__form-title">
           Username
         </label>
-        <input class="auth__form-text-input" type="text" name="username" v-model="username" />
+        <input
+          class="auth__form-text-input"
+          type="text"
+          name="username"
+          v-model="username"
+        />
       </div>
       <div class="auth__form-row">
         <label class="auth__form-title">Email</label>
-        <input class="auth__form-text-input" type="email" name="email" v-model="email" />
+        <input
+          class="auth__form-text-input"
+          type="email"
+          name="email"
+          v-model="email"
+        />
       </div>
       <div class="auth__form-row">
         <label class="auth__form-title">
           Password
         </label>
-        <input class="auth__form-text-input" type="password" name="password" v-model="password" />
+        <input
+          class="auth__form-text-input"
+          type="password"
+          name="password"
+          v-model="password"
+        />
       </div>
       <div class="auth__form-row">
         <input class="auth__form-submit-input" type="submit" value="sign up" />
@@ -87,9 +102,8 @@ export default {
     background-color: white;
     height: 2.4rem;
   }
-
 }
 .signup__alt {
-    margin-top: 2rem;
+  margin-top: 2rem;
 }
 </style>

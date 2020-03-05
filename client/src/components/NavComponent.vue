@@ -14,20 +14,19 @@
   </div>
 </template>
 <style lang="scss" scoped>
-
-.nav{
+.nav {
   width: 100%;
-  height:2rem;
+  height: 2rem;
   display: flex;
   background-color: black;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 9999;
-  display:flex;
-  flex-direction:row;
-  justify-content:space-between;
-  align-items:center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   padding: 0 1rem;
 }
 

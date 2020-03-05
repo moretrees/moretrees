@@ -17,6 +17,29 @@ const treeSchema = new Schema(
       default: 0,
       required: true
     },
+    accuracy:{
+      type:Number,
+      default: -9999,
+    },
+    altitude:{
+      type:Number,
+      default: -9999,
+    },
+    altitudeAccuracy:{
+      type:Number,
+      default: -9999,
+    },
+    bounds:{
+      type: Object,
+      default: {},
+    },
+    heading:{
+      type:Number,
+      default: -9999,
+    },
+    address:{
+      type: String,
+    },
     status: {
       type: String,
       default: 'incomplete'

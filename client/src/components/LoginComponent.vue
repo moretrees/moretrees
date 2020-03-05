@@ -3,14 +3,24 @@
     <form @submit.prevent="handleSubmit" class="auth__form">
       <div class="auth__form-row">
         <label class="auth__form-title">Email</label>
-        <input class="auth__form-text-input" type="email" name="email" v-model="email" />
+        <input
+          class="auth__form-text-input"
+          type="email"
+          name="email"
+          v-model="email"
+        />
       </div>
       <div class="auth__form-row">
         <label class="auth__form-title">
           Password |
           <router-link to="/reset_password">Forgot Password</router-link>
         </label>
-        <input class="auth__form-text-input" type="password" name="password" v-model="password" />
+        <input
+          class="auth__form-text-input"
+          type="password"
+          name="password"
+          v-model="password"
+        />
       </div>
       <div class="auth__form-row">
         <input class="auth__form-submit-input" type="submit" value="log in" />
@@ -80,9 +90,8 @@ export default {
     background-color: white;
     height: 2.4rem;
   }
-
 }
 .auth__alt {
-    margin-top: 2rem;
+  margin-top: 2rem;
 }
 </style>
