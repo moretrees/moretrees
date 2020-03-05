@@ -9,6 +9,7 @@ export default {
   name: "MapComponent",
   data() {
     return {
+      userMarker: null,
       myMap: null,
       treeLocation: {
         latitude: null,
@@ -30,34 +31,39 @@ export default {
           '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       }).addTo(map);
 
-      const myLocation = L.circle([0, 0], 10).addTo(map);
-      map.locate({ watch: true, setView: true }).on("locationfound", evt => {
-        myLocation.remove();
-
-        myLocation
-          .setLatLng(evt.latlng)
-          .bindPopup("Empty Tree Bed Near Here!")
-          .openPopup();
-
-        this.treeLocation = {
-          latitude: evt.latlng.lat,
-          longitude: evt.latlng.lng,
-          altitude: evt.altitude,
-          altitudeAccuracy: evt.altitudeAccuracy,
-          accuracy: evt.accuracy,
-          bounds: { ...evt.bounds },
-          heading: evt.heading
-        };
-
-        myLocation.addTo(map);
-      });
-
       this.myMap = map;
+      this.userMaker = L.circle([0, 0], 10).addTo(this.myMap);
+    },
+    handleLocateUser(evt) {
+      this.userMaker.remove();
+
+      this.userMaker
+        .setLatLng(evt.latlng)
+        .bindPopup("Empty Tree Bed Near Here!")
+        .openPopup();
+
+      this.treeLocation = {
+        latitude: evt.latlng.lat,
+        longitude: evt.latlng.lng,
+        altitude: evt.altitude,
+        altitudeAccuracy: evt.altitudeAccuracy,
+        accuracy: evt.accuracy,
+        bounds: { ...evt.bounds },
+        heading: evt.heading
+      };
+
+      this.userMaker.addTo(this.myMap);
+      this.$store.commit("setTreeLocation", this.treeLocation);
+    },
+    locateUser() {
+      this.myMap.locate({ watch: true, setView: true });
+      this.myMap.on("locationfound", this.handleLocateUser);
     }
   },
   mounted() {
     this.createMap();
-    this.$store.state.trees.dispatch("getTrees");
+    this.locateUser();
+    this.$store.dispatch("getTrees");
   }
 };
 </script>
