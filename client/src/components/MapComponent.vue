@@ -63,7 +63,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../../node_modules/leaflet/dist/leaflet.css";
+@import "../assets/styles/leaflet.css";
 .map-container {
   width: 100%;
   height: 500px;
