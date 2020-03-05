@@ -108,12 +108,23 @@ export default {
   &__title {
     color: #eee;
     font-size: 2.4rem;
+    max-width:600px;
+    text-align: center;
+    @media screen and (max-width:600px){
+      max-width:340px;
+      font-size:1.8rem;
+    }
   }
 
   &__subtitle {
     color: #eee;
     font-size: 1.4rem;
     font-weight: 100;
+    max-width:600px;
+    text-align: center;
+    @media screen and (max-width:600px){
+      font-size:1rem;
+    }
   }
 
   &__cta {
@@ -144,6 +155,8 @@ export default {
 
     @media screen and (max-width:600px) {
       max-width:100%;
+      padding: 0rem 1rem;
+      color:white;
     }
   }
   &__text {
@@ -154,8 +167,16 @@ export default {
 
     @media screen and (max-width:600px) {
       max-width:100%;
-      background-color: rgba(255,255, 255, 0.5);
       padding: 1rem;
+      color:white;
+    }
+
+    ol{
+      margin-left:1.5rem;
+    }
+    a, a:link, a:visited{
+      color:white;
+      text-decoration: none;
     }
   }
 
@@ -205,6 +226,10 @@ export default {
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 0;
+
+    @media screen and (max-width:600px){
+    width: 90%;
+  }
   }
 }
 .planter__icon {
@@ -215,6 +240,10 @@ export default {
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
+
+  @media screen and (max-width:600px){
+    width: 100%;
+  }
 }
 .tree-branch__icon {
   width: 520px;
