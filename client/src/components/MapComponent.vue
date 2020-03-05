@@ -57,6 +57,7 @@ export default {
   },
   mounted() {
     this.createMap();
+    this.$store.state.trees.dispatch("getTrees");
   }
 };
 </script>
