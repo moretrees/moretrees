@@ -41,7 +41,7 @@ export default {
           password: this.password
         };
         const result = await UserService.login(data);
-        console.log(result)
+        return result;
       } catch (error) {
         console.error(error);
         alert(error);
