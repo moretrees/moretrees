@@ -2,35 +2,16 @@
   <div class="signup">
     <form @submit.prevent="handleSubmit" class="auth__form">
       <div class="auth__form-row">
-        <label class="auth__form-title">
-          Username
-        </label>
-        <input
-          class="auth__form-text-input"
-          type="text"
-          name="username"
-          v-model="username"
-        />
+        <label class="auth__form-title">Username</label>
+        <input class="auth__form-text-input" type="text" name="username" v-model="username" />
       </div>
       <div class="auth__form-row">
         <label class="auth__form-title">Email</label>
-        <input
-          class="auth__form-text-input"
-          type="email"
-          name="email"
-          v-model="email"
-        />
+        <input class="auth__form-text-input" type="email" name="email" v-model="email" />
       </div>
       <div class="auth__form-row">
-        <label class="auth__form-title">
-          Password
-        </label>
-        <input
-          class="auth__form-text-input"
-          type="password"
-          name="password"
-          v-model="password"
-        />
+        <label class="auth__form-title">Password</label>
+        <input class="auth__form-text-input" type="password" name="password" v-model="password" />
       </div>
       <div class="auth__form-row">
         <input class="auth__form-submit-input" type="submit" value="sign up" />
@@ -63,15 +44,18 @@ export default {
           password: this.password,
           username: this.username
         };
-        await UserService.signup(data);
+        const result = await UserService.signup(data);
 
-        Router.push({
+        if (result) {
+          Router.push({
             path: "/login"
-        });
+          });
+          return result;
+        }
+        throw new Error("uh-oh! Error with sign up.");
       } catch (error) {
-        alert(error)
+        alert(error);
       }
-      
     }
   }
 };

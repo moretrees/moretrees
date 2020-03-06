@@ -42,12 +42,13 @@ export default {
           password: this.password
         };
         const result = await UserService.login(data);
-
-        Router.push({
+        if (result) {
+          Router.push({
             path: "/submit"
-        });
-        
-        return result;
+          });
+          return result;
+        }
+        throw new Error("uh-oh! Error with log in.");
       } catch (error) {
         alert(error);
       }
