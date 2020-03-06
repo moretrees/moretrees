@@ -3,24 +3,14 @@
     <form @submit.prevent="handleSubmit" class="auth__form">
       <div class="auth__form-row">
         <label class="auth__form-title">Email</label>
-        <input
-          class="auth__form-text-input"
-          type="email"
-          name="email"
-          v-model="email"
-        />
+        <input class="auth__form-text-input" type="email" name="email" v-model="email" />
       </div>
       <div class="auth__form-row">
         <label class="auth__form-title">
           Password |
           <router-link to="/reset_password">Forgot Password</router-link>
         </label>
-        <input
-          class="auth__form-text-input"
-          type="password"
-          name="password"
-          v-model="password"
-        />
+        <input class="auth__form-text-input" type="password" name="password" v-model="password" />
       </div>
       <div class="auth__form-row">
         <input class="auth__form-submit-input" type="submit" value="log in" />
@@ -28,7 +18,7 @@
     </form>
     <p class="auth__alt">
       Don't have an account yet?
-      <router-link to="/signup">Signup</router-link> to begin.
+      <router-link to="/signup">Signup</router-link>to begin.
     </p>
   </div>
 </template>
@@ -45,11 +35,17 @@ export default {
   },
   methods: {
     async handleSubmit() {
-      const data = {
-        email: this.email,
-        password: this.password
-      };
-      await UserService.login(data);
+      try {
+        const data = {
+          email: this.email,
+          password: this.password
+        };
+        const result = await UserService.login(data);
+        console.log(result)
+      } catch (error) {
+        console.error(error);
+        alert(error);
+      }
     }
   }
 };

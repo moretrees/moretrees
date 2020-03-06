@@ -14,7 +14,7 @@ class UserService {
       const data = result.data;
       return data;
     } catch (error) {
-      return error;
+      alert(error);
     }
   }
 
@@ -26,9 +26,10 @@ class UserService {
     try {
       const result = await axios.post(`${url}/login`, credentials);
       const data = result.data;
+      alert("login successful");
       return data;
     } catch (error) {
-      return error;
+      alert(error);
     }
   }
 

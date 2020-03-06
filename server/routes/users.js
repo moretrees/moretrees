@@ -34,8 +34,8 @@ api.post('/signup', async(req, res) => {
     });
 
     res.status(201).send({
-      user,
-      token
+      username: user.username,
+      _id: user._id
     });
   } catch (error) {
     res.status(400).send(err);
@@ -52,8 +52,6 @@ api.post('/login', async (req, res) => {
       email,
       password
     } = req.body;
-
-    console.log(req.body)
 
     const user = await User.findByCredentials(email, password);
 
@@ -85,8 +83,8 @@ api.post('/login', async (req, res) => {
     });
 
     res.status(201).send({
-      user,
-      token
+      username: user.username,
+      _id: user._id
     });
 
   } catch (err) {
