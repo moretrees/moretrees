@@ -24,6 +24,7 @@
 </template>
 
 <script>
+import Router from "../router";
 import UserService from "../UserService";
 export default {
   name: "LoginComponent",
@@ -41,9 +42,13 @@ export default {
           password: this.password
         };
         const result = await UserService.login(data);
+
+        Router.push({
+            path: "/submit"
+        });
+        
         return result;
       } catch (error) {
-        console.error(error);
         alert(error);
       }
     }

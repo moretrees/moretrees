@@ -44,6 +44,7 @@
 </template>
 
 <script>
+import Router from "../router";
 import UserService from "../UserService";
 export default {
   name: "SignupComponent",
@@ -56,12 +57,21 @@ export default {
   },
   methods: {
     async handleSubmit() {
-      const data = {
-        email: this.email,
-        password: this.password,
-        username: this.username
-      };
-      await UserService.signup(data);
+      try {
+        const data = {
+          email: this.email,
+          password: this.password,
+          username: this.username
+        };
+        await UserService.signup(data);
+
+        Router.push({
+            path: "/login"
+        });
+      } catch (error) {
+        alert(error)
+      }
+      
     }
   }
 };
