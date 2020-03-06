@@ -14,7 +14,7 @@ class TreeService {
       const data = res.data;
       return data;
     } catch (error) {
-      return error;
+      alert(error);
     }
   }
 
@@ -27,7 +27,7 @@ class TreeService {
       const newData = result.data;
       return newData;
     } catch (error) {
-      return error;
+      alert(error);
     }
   }
 
