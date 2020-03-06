@@ -1,4 +1,4 @@
-import TreeService from '@/services/TreeService';
+import TreeService from '../services/TreeService';
 export default {
   state: {
     trees: []

@@ -16,11 +16,8 @@ api.get('/', async (req, res) => {
 api.post('/', isAuthenticated, async (req, res) => {
   try {
     const {username, user_id} = req.cookies;
-    const {latitude, longitude, status} = req.body;
     const newData = {
-      latitude,
-      longitude,
-      status,
+      ...req.body,
       createdBy_username:username,
       createdBy_id:user_id
     };
