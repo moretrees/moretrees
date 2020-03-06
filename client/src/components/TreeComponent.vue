@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import TreeService from "../TreeService";
+import TreeService from "../services/TreeService";
 export default {
   name: "TreeService",
   data() {

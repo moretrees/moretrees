@@ -1,4 +1,4 @@
-import TreeService from '@/TreeService';
+import TreeService from '@/services/TreeService';
 export default {
   state: {
     trees: []
@@ -44,6 +44,7 @@ export default {
           ...rootState.geo.treeLocation
         };
         const result = await TreeService.addTree(newTreeData);
+        
         if (result) {
           alert('Success! Submission successful 🌱');
           commit('addTree', result);

@@ -25,7 +25,7 @@
 
 <script>
 import Router from "../router";
-import UserService from "../UserService";
+import UserService from "../services/UserService";
 export default {
   name: "LoginComponent",
   data() {
