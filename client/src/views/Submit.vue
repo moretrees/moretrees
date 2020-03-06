@@ -74,14 +74,10 @@ export default {
 #Submit {
   width: 100%;
   height: calc(100vh - 2rem);
-  // background-image: url(../assets/nyc-map-800x800.png);
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
 }
 
 .main {
-  position: absolute;
+  position: fixed;
   width: 100%;
   bottom: 0;
   left: 0;
