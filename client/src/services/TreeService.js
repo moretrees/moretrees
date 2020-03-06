@@ -1,10 +1,10 @@
-import axios from 'axios';
+import axios from "axios";
 
-const url = '/api/v1/trees';
+const url = "/api/v1/trees";
 const s3url =
-  process.env.NODE_ENV === 'development'
-    ? 'http://localhost:3000/api/v1/s3/sign-s3'
-    : '/api/v1/s3/sign-s3';
+  process.env.NODE_ENV === "development"
+    ? "http://localhost:3000/api/v1/s3/sign-s3"
+    : "/api/v1/s3/sign-s3";
 
 class TreeService {
   // GET trees
@@ -48,8 +48,8 @@ class TreeService {
       photoData = photoData.data;
 
       const uploadOptions = {
-        method: 'PUT',
-        headers: { 'Content-type': `${photoType}` },
+        method: "PUT",
+        headers: { "Content-type": `${photoType}` },
         body: dataCopy.photo
       };
 

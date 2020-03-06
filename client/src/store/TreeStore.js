@@ -1,4 +1,4 @@
-import TreeService from '../services/TreeService';
+import TreeService from "../services/TreeService";
 export default {
   state: {
     trees: []
@@ -29,10 +29,10 @@ export default {
       try {
         const result = await TreeService.getTrees();
         if (result) {
-          context.commit('setTrees', result);
+          context.commit("setTrees", result);
           return result;
         }
-        throw new Error('Uh oh! Error getting tree data');
+        throw new Error("Uh oh! Error getting tree data");
       } catch (err) {
         alert(err);
       }
@@ -44,13 +44,13 @@ export default {
           ...rootState.geo.treeLocation
         };
         const result = await TreeService.addTree(newTreeData);
-        
+
         if (result) {
-          alert('Success! Submission successful 🌱');
-          commit('addTree', result);
+          alert("Success! Submission successful 🌱");
+          commit("addTree", result);
           return result;
         }
-        throw new Error('Uh-oh. Error submitting data.');
+        throw new Error("Uh-oh. Error submitting data.");
       } catch (error) {
         alert(error);
       }
