@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const treeSchema = new Schema(
   {
-    photoUrl: {
+    photo: {
       type: String,
       default: null
     },

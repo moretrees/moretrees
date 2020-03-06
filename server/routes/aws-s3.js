@@ -2,7 +2,7 @@ const express = require('express');
 const aws = require('aws-sdk');
 const api = express.Router();
 const config = require('../config');
-
+const isAuthenticated = require('../middleware/isAuthenticated');
 /*
  * Configure the AWS region of the target bucket.
  * Remember to change this to the relevant region.
@@ -33,17 +33,18 @@ api.get('/sign-s3', (req, res) => {
 
   s3.getSignedUrl('putObject', s3Params, (err, data) => {
     if(err){
-      console.log(err);
+      console.error(err);
       return res.end();
     }
     const returnData = {
       signedRequest: data,
       url: `https://${S3_BUCKET}.s3.amazonaws.com/${fileName}`
     };
-    res.write(JSON.stringify(returnData));
+    res.send(JSON.stringify(returnData));
     res.end();
   });
 });
 
-
 module.exports = api;
+
+

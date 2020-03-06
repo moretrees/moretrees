@@ -10,9 +10,11 @@ const app = express();
 
 require('./db/db');
 
+if(process.env.NODE_ENV !== 'production'){
+  app.use(logger("dev"));
+}
 // logger
 app.use(cookieParser())
-app.use(logger("dev"));
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

@@ -12,10 +12,10 @@ export default {
     setTrees(state, trees) {
       state.trees = trees;
     },
-    addTree(state, tree){
+    addTree(state, tree) {
       state.trees = [...state.trees, tree];
     },
-    editTree(state, updatedTree){
+    editTree(state, updatedTree) {
       state.trees = state.trees.map(item => {
         return item._id === updatedTree._id ? updatedTree : item;
       });
@@ -26,12 +26,24 @@ export default {
   },
   actions: {
     async getTrees(context) {
-      try{
+      try {
         const result = await TreeService.getTrees();
-        const data = result.data;
+        const data = result;
         context.commit("setTrees", data);
-      }catch(err){
-        console.error(err);
+      } catch (err) {
+        alert(err);
+      }
+    },
+    async addTree({ commit, rootState }, data) {
+      try {
+        const newTreeData = {
+          ...data,
+          ...rootState.geo.treeLocation
+        };
+        const result = await TreeService.addTree(newTreeData);
+        commit("addTree", result);
+      } catch (error) {
+        alert(error);
       }
     }
   }

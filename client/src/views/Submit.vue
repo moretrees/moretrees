@@ -6,18 +6,24 @@
     </header>
     <main class="main">
       <p class="description">Hey, I found an empty tree bed!</p>
-      <form class="tree-form">
+      <form class="tree-form" @submit.prevent="handleSubmit">
         <div class="tree-form__row">
           <label for="photo" class="tree-form__row-label"
             >Step 1: Upload or Snap a photo</label
           >
-          <input type="file" name="photo" class="tree-form__input-file" />
+          <input
+            @change="handleFileSelection"
+            type="file"
+            name="photo"
+            class="tree-form__input-file"
+          />
         </div>
         <div class="tree-form__row">
           <label for="address" class="tree-form__row-label"
             >Step 2: Approx. Address</label
           >
           <input
+            v-model="address"
             type="text"
             name="address"
             class="tree-form__input-text"
@@ -39,8 +45,27 @@
 import MapComponent from "@/components/MapComponent";
 export default {
   name: "Submit",
+  data() {
+    return {
+      photo: null,
+      address: null
+    };
+  },
   components: {
     MapComponent
+  },
+  methods: {
+    handleFileSelection(evt) {
+      const selectedImage = evt.target.files[0];
+      this.photo = selectedImage;
+    },
+    handleSubmit() {
+      const newData = {
+        photo: this.photo,
+        address: this.address
+      };
+      this.$store.dispatch("addTree", newData);
+    }
   }
 };
 </script>

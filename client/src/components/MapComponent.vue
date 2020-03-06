@@ -61,9 +61,9 @@ export default {
     }
   },
   mounted() {
+    this.$store.dispatch("getTrees");
     this.createMap();
     this.locateUser();
-    this.$store.dispatch("getTrees");
   }
 };
 </script>
