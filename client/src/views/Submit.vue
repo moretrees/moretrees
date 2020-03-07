@@ -1,7 +1,7 @@
 <template>
   <div id="Submit">
     <div id="map-container">
-      <MapComponent />
+      <MapComponent v-bind:scrollWheelZoom="true"/>
     </div>
     <!-- <header class="header">
       <img src="#" class="image__preview" />

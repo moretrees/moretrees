@@ -7,6 +7,9 @@ import * as L from "leaflet";
 
 export default {
   name: "MapComponent",
+  props: {
+    scrollWheelZoom: Boolean
+  },
   data() {
     return {
       userMarker: null,
@@ -24,13 +27,18 @@ export default {
     };
   },
   computed: {
+    isScrollZoomable() {
+      return this.scrollWheelZoom;
+    },
     trees() {
       return this.$store.state.trees.trees;
     }
   },
   methods: {
     createMap() {
-      const map = L.map("MyMap").setView([40.775449, -73.970959], 10);
+      const map = L.map("MyMap", {
+        scrollWheelZoom: this.isScrollZoomable
+      }).setView([40.775449, -73.970959], 10);
 
       L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
         attribution:

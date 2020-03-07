@@ -3,9 +3,7 @@
     <header class="header">
       <h1 class="header__title">Let's Plant More Trees</h1>
       <h2 class="header__subtitle">A project by moretrees.nyc</h2>
-      <button @click="scrollTo('#who-are-we')" class="header__cta">
-        Learn More
-      </button>
+      <button @click="scrollTo('#who-are-we')" class="header__cta">Learn More</button>
     </header>
     <main class="main">
       <section class="section section--lawn"></section>
@@ -19,12 +17,13 @@
           <p class="section__text">
             <a href="/">MoreTrees</a> is a grassroots project started by two
             Brooklyn residents,
-            <a href="https://www.anzollitto.com/" target="_blank" noreferrer
-              >Andy Anzollitto</a
-            >
+            <a
+              href="https://www.anzollitto.com/"
+              target="_blank"
+              noreferrer
+            >Andy Anzollitto</a>
             and
-            <a href="https://jk-lee.com" target="_blank" noreferrer>Joey Lee</a
-            >. Andy is a type designer and Joey is a creative technologist.
+            <a href="https://jk-lee.com" target="_blank" noreferrer>Joey Lee</a>. Andy is a type designer and Joey is a creative technologist.
             Together, they have joined forces to put their design and tech
             skills to work to make New York City greener, one tree at a time.
           </p>
@@ -45,8 +44,7 @@
               href="https://portal.311.nyc.gov/report-problems/"
               noreferrer
               target="_blank"
-              >311 request</a
-            >
+            >311 request</a>
             for the City to plant a tree there! Whether you're walking your dog,
             on your way to work, or just on a stroll, you can submit the
             location of an empty tree bed and we'll submit your 311 request for
@@ -90,14 +88,28 @@
           </p>
         </div>
       </section>
+      <section class="section section--tree">
+        <div id="tree-map">
+          <MapComponent v-bind:scrollWheelZoom="false" />
+        </div>
+        <!-- <header class="section__top-header">
+          <div class="section__top-header--bubble">
+            <h3>Made with ❤ by Andy & Joey</h3>
+          </div>
+          <h2>Help Plant More Trees!</h2>
+        </header>-->
+      </section>
     </main>
   </div>
 </template>
 
 <script>
+import MapComponent from "@/components/MapComponent.vue";
 export default {
   name: "Home",
-  components: {},
+  components: {
+    MapComponent
+  },
   methods: {
     scrollToBottom() {
       var $header = document.querySelector(".header");
@@ -125,6 +137,51 @@ export default {
   );
   display: flex;
   flex-direction: column-reverse;
+}
+
+#tree-map {
+  // clip-path: circle(48.0% at 38% 29%);
+  width: 100%;
+  height: 100%;
+}
+.section__top-header {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 1rem;
+  width: 340px;
+  height: 340px;
+  border: 2px solid #73903a;
+  z-index: 9999;
+  border-radius: 50%;
+  background-color: #73903a;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 2px 2px 0px black;
+
+  &--bubble {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: 2px solid #73903a;
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    transform: translate(0, -80%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #73903a;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    box-shadow: 2px 2px 0px black;
+    z-index: 9998;
+  }
 }
 
 .header {
