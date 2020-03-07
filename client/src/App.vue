@@ -23,6 +23,7 @@ export default {
 
 html {
   font-size: 16px;
+  scroll-behavior: smooth;
 }
 
 body {

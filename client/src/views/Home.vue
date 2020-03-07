@@ -3,11 +3,13 @@
     <header class="header">
       <h1 class="header__title">Let's Plant More Trees</h1>
       <h2 class="header__subtitle">A project by moretrees.nyc</h2>
-      <button class="header__cta">Learn More</button>
+      <button @click="scrollTo('#who-are-we')" class="header__cta">
+        Learn More
+      </button>
     </header>
     <main class="main">
       <section class="section section--lawn"></section>
-      <section class="section section--tree">
+      <section id="who-are-we" class="section section--tree">
         <!-- <svg class="planter__icon">
           <use xlink:href="../assets/planter.svg" />
         </svg>-->
@@ -100,6 +102,10 @@ export default {
     scrollToBottom() {
       var $header = document.querySelector(".header");
       $header.scrollIntoView();
+    },
+    scrollTo(id) {
+        var $el = document.querySelector(id);
+        $el.scrollIntoView();
     }
   },
   mounted() {
@@ -109,6 +115,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
 #Home {
   width: 100%;
   background: rgb(171, 220, 207);
