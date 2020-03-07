@@ -1,7 +1,7 @@
 <template>
   <div id="Dashboard">
     <!-- <TreeComponent /> -->
-    <MapComponent v-bind:scrollWheelZoom="true"/>
+    <MapComponent v-bind:scrollWheelZoom="true" />
   </div>
 </template>
 <script>

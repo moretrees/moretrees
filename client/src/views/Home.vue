@@ -3,7 +3,9 @@
     <header class="header">
       <h1 class="header__title">Let's Plant More Trees</h1>
       <h2 class="header__subtitle">A project by moretrees.nyc</h2>
-      <button @click="scrollTo('#who-are-we')" class="header__cta">Learn More</button>
+      <button @click="scrollTo('#who-are-we')" class="header__cta">
+        Learn More
+      </button>
     </header>
     <main class="main">
       <section class="section section--lawn"></section>
@@ -17,13 +19,12 @@
           <p class="section__text">
             <a href="/">MoreTrees</a> is a grassroots project started by two
             Brooklyn residents,
-            <a
-              href="https://www.anzollitto.com/"
-              target="_blank"
-              noreferrer
-            >Andy Anzollitto</a>
+            <a href="https://www.anzollitto.com/" target="_blank" noreferrer
+              >Andy Anzollitto</a
+            >
             and
-            <a href="https://jk-lee.com" target="_blank" noreferrer>Joey Lee</a>. Andy is a type designer and Joey is a creative technologist.
+            <a href="https://jk-lee.com" target="_blank" noreferrer>Joey Lee</a
+            >. Andy is a type designer and Joey is a creative technologist.
             Together, they have joined forces to put their design and tech
             skills to work to make New York City greener, one tree at a time.
           </p>
@@ -44,7 +45,8 @@
               href="https://portal.311.nyc.gov/report-problems/"
               noreferrer
               target="_blank"
-            >311 request</a>
+              >311 request</a
+            >
             for the City to plant a tree there! Whether you're walking your dog,
             on your way to work, or just on a stroll, you can submit the
             location of an empty tree bed and we'll submit your 311 request for

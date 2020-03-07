@@ -29,14 +29,14 @@
   align-items: center;
   padding: 0 1rem;
 
-  &__list{
-    width:33.3333%;
+  &__list {
+    width: 33.3333%;
 
-    &--center{
-      text-align:center;
+    &--center {
+      text-align: center;
     }
-    &--right{
-      text-align:right;
+    &--right {
+      text-align: right;
     }
   }
 }
