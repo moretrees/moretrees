@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const logger = require("morgan");
 const express = require("express");
-const config = require("./config");
+const config = require("./config.js");
 const cookieParser = require("cookie-parser");
 const cors = require('cors');
 const PORT = config.PORT;
@@ -10,6 +10,7 @@ const app = express();
 
 require('./db/db');
 
+console.log(config)
 if(process.env.NODE_ENV !== 'production'){
   app.use(logger("dev"));
 }

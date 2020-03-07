@@ -1,9 +1,11 @@
 <template>
   <div id="Submit">
-    <header class="header">
-      <img src="#" class="image__preview" />
+    <div id="map-container">
       <MapComponent />
-    </header>
+    </div>
+    <!-- <header class="header">
+      <img src="#" class="image__preview" />
+    </header> -->
     <main class="main">
       <p class="description">Hey, I found an empty tree bed!</p>
       <form class="tree-form" @submit.prevent="handleSubmit">
@@ -74,6 +76,15 @@ export default {
 #Submit {
   width: 100%;
   height: calc(100vh - 2rem);
+  position: relative;
+}
+
+#map-container {
+  width: 100%;
+  height: 100%;
+  // position:absolute;
+  // top:0;
+  // left:0;
 }
 
 .main {
@@ -85,6 +96,7 @@ export default {
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
   padding: 1rem;
+  z-index: 1000;
 }
 .description {
   margin-bottom: 0.5rem;

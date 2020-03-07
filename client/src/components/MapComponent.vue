@@ -11,6 +11,7 @@ export default {
     return {
       userMarker: null,
       myMap: null,
+      treeMarkers: null,
       treeLocation: {
         latitude: null,
         longitude: null,
@@ -21,6 +22,11 @@ export default {
         heading: null
       }
     };
+  },
+  computed: {
+    trees() {
+      return this.$store.state.trees.trees;
+    }
   },
   methods: {
     createMap() {
@@ -33,6 +39,7 @@ export default {
 
       this.myMap = map;
       this.userMaker = L.circle([0, 0], 10).addTo(this.myMap);
+      this.treeMarkers = L.featureGroup().addTo(this.myMap);
     },
     handleLocateUser(evt) {
       this.userMaker.remove();
@@ -53,17 +60,35 @@ export default {
       };
 
       this.userMaker.addTo(this.myMap);
+      this.myMap.stopLocate();
       this.$store.commit("setTreeLocation", this.treeLocation);
     },
     locateUser() {
       this.myMap.locate({ watch: true, setView: true });
       this.myMap.on("locationfound", this.handleLocateUser);
+    },
+    showTrees() {
+      this.trees.forEach(item => {
+        L.circle([item.latitude, item.longitude], {
+          radius: 10,
+          color: "red"
+        })
+          .bindPopup(
+            `
+        <div class="marker-popup" style="max-width:300px">
+          <img src="${item.photo}" class="marker-popup__image" style="width:100%; min-width:200px;">
+        </div>
+        `
+          )
+          .addTo(this.myMap);
+      });
     }
   },
-  mounted() {
-    this.$store.dispatch("getTrees");
+  async mounted() {
+    await this.$store.dispatch("getTrees");
     this.createMap();
     this.locateUser();
+    this.showTrees();
   }
 };
 </script>
@@ -72,7 +97,20 @@ export default {
 @import "../assets/styles/leaflet.css";
 .map-container {
   width: 100%;
-  height: 500px;
+  height: 100%;
   z-index: 0;
 }
+.leaflet-popup {
+  width: 100%;
+  max-width: 300px;
+}
+// .leaflet-popup-content {
+//   max-width: 300px;
+//   .marker-popup {
+//     padding: 0.5rem;
+//     &__image {
+//       width: 100%;
+//     }
+//   }
+// }
 </style>

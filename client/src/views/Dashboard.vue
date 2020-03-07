@@ -1,17 +1,25 @@
 <template>
   <div id="Dashboard">
-    <h1>dashboard</h1>
-    <TreeComponent />
+    <!-- <TreeComponent /> -->
+    <MapComponent />
   </div>
 </template>
 <script>
 // @ is an alias to /src
-import TreeComponent from "@/components/TreeComponent.vue";
+// import TreeComponent from "@/components/TreeComponent.vue";
+import MapComponent from "@/components/MapComponent.vue";
 
 export default {
   name: "Dashboard",
   components: {
-    TreeComponent
+    MapComponent
   }
 };
 </script>
+
+<style lang="scss" scoped>
+#Dashboard {
+  width: 100%;
+  height: calc(100vh - 2rem);
+}
+</style>

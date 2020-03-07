@@ -104,8 +104,8 @@ export default {
       $header.scrollIntoView();
     },
     scrollTo(id) {
-        var $el = document.querySelector(id);
-        $el.scrollIntoView();
+      var $el = document.querySelector(id);
+      $el.scrollIntoView();
     }
   },
   mounted() {
@@ -115,7 +115,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-
 #Home {
   width: 100%;
   background: rgb(171, 220, 207);

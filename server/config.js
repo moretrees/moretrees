@@ -1,8 +1,8 @@
 const {NODE_ENV} = process.env;
 if(NODE_ENV === "production"){
-  require("dotenv").config({path:"../server/.env.development"});
+  require("dotenv").config({path:"./.env.production"});
 } else if (NODE_ENV === "development"){
-  require("dotenv").config({path:"../server/.env.development"});
+  require("dotenv").config({path:"./.env.development"});
 } else {
   require("dotenv").config();
 }
