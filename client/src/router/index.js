@@ -12,27 +12,42 @@ const routes = [
   {
     path: "/",
     name: "Home",
-    component: Home
+    component: Home,
+    meta: {
+      title: 'Home - MoreTrees.nyc',
+    }
   },
   {
     path: "/submit",
     name: "Submit",
-    component: Submit
+    component: Submit,
+    meta: {
+      title: 'Submit - MoreTrees.nyc',
+    }
   },
   {
     path: "/dashboard",
     name: "Dashboard",
-    component: Dashboard
+    component: Dashboard,
+    meta: {
+      title: 'Dashboard - MoreTrees.nyc',
+    }
   },
   {
     path: "/login",
     name: "Login",
-    component: Login
+    component: Login,
+    meta: {
+      title: 'Login - MoreTrees.nyc',
+    }
   },
   {
     path: "/signup",
     name: "Signup",
-    component: Signup
+    component: Signup,
+    meta: {
+      title: 'Signup - MoreTrees.nyc',
+    }
   }
   // {
   //   path: "/about",
