@@ -10,7 +10,6 @@ const app = express();
 
 require('./db/db');
 
-console.log(config)
 if(process.env.NODE_ENV !== 'production'){
   app.use(logger("dev"));
 }
